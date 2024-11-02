@@ -1,0 +1,21 @@
+<!-- data  binding -->
+ <!-- interpolation {{ }}  -->
+ <h1>{{propTrack.trackName}}</h1>
+
+
+ <ul>
+
+    <!-- <li> {{propTrack.trackBranch[0]}} </li>
+     <li> {{propTrack.trackBranch[1]}} </li> -->
+
+<li *ngFor="let i of propTrack.trackBranch" >
+
+   {{i}}
+   
+</li>
+
+
+
+ </ul>
+
+

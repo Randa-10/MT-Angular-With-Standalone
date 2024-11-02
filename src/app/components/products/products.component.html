@@ -1,0 +1,72 @@
+<!-- one-way-binding -->
+<!-- interpolation {{}} -->
+<!-- property binding  [ ] -->
+
+<!-- <div class="card" style="width: 18rem;">
+    <img [src]="productProp.productImgUrl" class="card-img-top" alt="...">
+    <img src="{{productProp.productImgUrl}}" class="card-img-top" alt="...">
+
+    <div class="card-body">
+      <h5 class="card-title">product Name : {{productProp.productName}}</h5>
+      <h5 class="card-title">q : {{productProp.productQuantity}}</h5>
+      <h5 class="card-title">price : {{productProp.productPrice}}</h5>
+
+
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
+
+
+
+ 
+
+<div class="container">
+     <!-- <input type="text" name="name"  class="form-control mt-5" [value]="userName" /> -->
+     <input type="text" name="name"  class="form-control mt-5" [(ngModel)]="userName" />
+
+  <p>
+    {{userName}}
+  </p>
+  <div class="row">
+    <!-- @for ( iof arrName ; track name){
+    html
+} -->
+
+<button class="btn btn-danger"  (click)="toggle()">
+   
+    {{showImge? "hide":"show"}}
+</button>
+    @for(i of productProp ; track productProp){
+    <div class="col-md-4 mt-2">
+      <div class="card" style="width: 18rem">
+<!-- 
+        @if(showImge){
+           <img [src]="i.productImgUrl" class="card-img-top" alt="..." />   
+        }
+   -->
+
+   <img *ngIf="showImge" [src]="i.productImgUrl" class="card-img-top" alt="..." />   
+
+        <!-- <img src="{{i.productImgUrl}}" class="card-img-top" alt="..."> -->
+
+        <div class="card-body">
+          <h5 class="card-title">product Name : {{ i.productName }}</h5>
+          <h5 class="card-title">q : {{ i.productQuantity }}</h5>
+          <h5 class="card-title">price : {{ i.productPrice }}</h5>
+
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <button  class="btn btn-primary" [disabled]="i.productQuantity==0" >Add to cart </button>
+        </div>
+      </div>
+    </div>
+
+    }@empty {
+    <h1 class="text-center text-danger">no products</h1>
+    }
+
+  </div>
+</div>

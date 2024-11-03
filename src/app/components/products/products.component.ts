@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './products.component.css',
 })
 export class ProductsComponent implements OnInit {
-  //inject
+  //
   productProp!: Store[]; //[{},{}]
 
   showImge: boolean = true;
@@ -123,6 +123,10 @@ export class ProductsComponent implements OnInit {
     //   },
     // ];
     // console.log(this.productProp);
+  
+ 
+  
+  
   }
   //2
   ngOnInit(): void {
@@ -227,12 +231,34 @@ export class ProductsComponent implements OnInit {
           'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ',
       },
     ];
-
+ this.productListAfterFilter=this.productProp
     console.log(this.productProp);
   }
 
   //methodes
   toggle() {
     this.showImge = !this.showImge;
+  }
+
+
+//day3  filter
+
+  productListAfterFilter:Store[]=[] //
+
+  //2
+set doSearch(value:string){
+  // console.log(value);
+// console.log(this.performFilter(value));
+this.productListAfterFilter=this.performFilter(value)
+
+}
+
+
+  //1
+  performFilter(Prdfilter:string):Store[]{
+    Prdfilter=Prdfilter.toLowerCase()
+    return  this.productProp.filter((prd:Store)=>
+    prd.productName.toLowerCase().includes(Prdfilter)
+    )
   }
 }

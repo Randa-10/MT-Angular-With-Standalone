@@ -28,7 +28,7 @@
       type="text"
       name="name"
       class="form-control mt-5"
-      [(ngModel)]="userName"
+      [(ngModel)]="doSearch"
     />
 
     <p>
@@ -39,7 +39,7 @@
     html
 } -->
 
-    @for(i of productProp ; track productProp){
+    @for(i of productListAfterFilter ; track productProp){
     <div class="col-md-4 mt-2">
       <div class="card" style="width: 18rem">
         <!-- 
@@ -58,8 +58,19 @@
         <!-- <img src="{{i.productImgUrl}}" class="card-img-top" alt="..."> -->
 
         <div class="card-body">
-          <h5 class="card-title">product Name : {{ i.productName }}</h5>
-          <h5 class="card-title">q : {{ i.productQuantity }}</h5>
+<!-- [class] prop binding -->
+          <!-- <h5 [class.text-danger]="i.productQuantity==0" >product Name : {{ i.productName }}</h5> -->
+<!-- [ngClass] -->
+          <!-- <h5 [ngClass]="{'text-danger':i.productQuantity==0,'bg-dark':i.productQuantity==0}" >product Name : {{ i.productName }}</h5> -->
+<!-- [style] prop binding -->
+          
+          <!-- <h5 [style.background-color]="(i.productQuantity==0)?'red':'black'"  >product Name : {{ i.productName }}</h5> -->
+
+ <!-- [ngStyle] -->
+          <h5 [ngStyle]="{'background-color':(i.productQuantity==0)?'red':'black','color':(i.productQuantity==0)?'black':'red'}" >product Name : {{ i.productName }}</h5>
+
+
+          <h5 class="card-title" >q : {{ i.productQuantity }}</h5>
           <h5 class="card-title">price : {{ i.productPrice }}</h5>
 
           <p class="card-text">

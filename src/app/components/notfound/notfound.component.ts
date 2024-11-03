@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-notfound',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  templateUrl: './notfound.component.html',
+  styleUrl: './notfound.component.css'
 })
-export class NavbarComponent {
+export class NotfoundComponent {
 
 }

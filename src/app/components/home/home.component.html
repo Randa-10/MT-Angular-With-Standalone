@@ -7,15 +7,19 @@
 
     <!-- <li> {{propTrack.trackBranch[0]}} </li>
      <li> {{propTrack.trackBranch[1]}} </li> -->
-
-<li *ngFor="let i of propTrack.trackBranch" >
+<div *ngFor="let i of propTrack.trackBranch" >
+  <li *ngIf="" >
 
    {{i}}
    
-</li>
+</li> 
+</div>
+
 
 
 
  </ul>
 
 
+
+ <app-products></app-products>

@@ -24,21 +24,21 @@
     {{ showImge ? "hide" : "show" }}
   </button>
   <div class="row">
-    <input
+    <!-- <input
       type="text"
       name="name"
       class="form-control mt-5"
       [(ngModel)]="doSearch"
-    />
-
+    /> -->
+    <!-- 
     <p>
       {{ userName }}
-    </p>
+    </p> -->
 
     <!-- @for ( iof arrName ; track name){
     html
 } -->
-
+    <!-- v17....  @for @if @switch -->
     @for(i of productListAfterFilter ; track productProp){
     <div class="col-md-4 mt-2">
       <div class="card" style="width: 18rem">
@@ -48,30 +48,58 @@
         }
    -->
 
+        <!-- <img
+          *ngIf="showImge"
+          [src]="i.productImgUrl"
+          class="card-img-top"
+          alt="..."
+          appCardStyle 
+          color1="red"
+        /> -->
         <img
           *ngIf="showImge"
           [src]="i.productImgUrl"
           class="card-img-top"
           alt="..."
+          appCardStyle="red"
         />
-
         <!-- <img src="{{i.productImgUrl}}" class="card-img-top" alt="..."> -->
 
         <div class="card-body">
-<!-- [class] prop binding -->
+          <!-- [class] prop binding -->
           <!-- <h5 [class.text-danger]="i.productQuantity==0" >product Name : {{ i.productName }}</h5> -->
-<!-- [ngClass] -->
+          <!-- [ngClass] -->
           <!-- <h5 [ngClass]="{'text-danger':i.productQuantity==0,'bg-dark':i.productQuantity==0}" >product Name : {{ i.productName }}</h5> -->
-<!-- [style] prop binding -->
-          
+          <!-- [style] prop binding -->
+
           <!-- <h5 [style.background-color]="(i.productQuantity==0)?'red':'black'"  >product Name : {{ i.productName }}</h5> -->
 
- <!-- [ngStyle] -->
-          <h5 [ngStyle]="{'background-color':(i.productQuantity==0)?'red':'black','color':(i.productQuantity==0)?'black':'red'}" >product Name : {{ i.productName }}</h5>
+          <!-- [ngStyle] -->
+          <!-- <h5 [ngStyle]="{'background-color':(i.productQuantity==0)?'red':'black','color':(i.productQuantity==0)?'black':'red'}" >product Name : {{ i.productName | uppercase }}</h5> -->
+          <h5>{{ i.productName | uppercase }}</h5>
 
+          <h5 class="card-title">q : {{ i.productQuantity }}</h5>
+          <h5 class="card-title">
+            <span class="price">
+              {{ i.productPrice | currency }}
+            </span>
+            {{ i.productPrice | discount : 50 | currency }}
+          </h5>
+          @switch(i.productQuantity){ @case (1) {
+          <p>last on item</p>
+          } @case (0) {
+          <p>out of stock</p>
 
-          <h5 class="card-title" >q : {{ i.productQuantity }}</h5>
-          <h5 class="card-title">price : {{ i.productPrice }}</h5>
+          } @default {
+          <p>in stock</p>
+
+          } }
+
+          <!-- <div [ngSwitch]="i.productQuantity">
+<div *ngSwitchCase="0">
+
+</div>
+</div> -->
 
           <p class="card-text">
             Some quick example text to build on the card title and make up the

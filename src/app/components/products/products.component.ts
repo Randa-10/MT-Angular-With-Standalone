@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '../../models/store';
 import { log } from 'console';
 
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { DiscountPipe } from '../../pipes/discount.pipe';
+import { CardStyleDirective } from '../../directives/card-style.directive';
+//class decorator   id
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,DiscountPipe,CardStyleDirective],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
@@ -136,7 +138,7 @@ export class ProductsComponent implements OnInit {
         productName: 'Apple iPhone 15',
         productImgUrl:
           'https://f.nooncdn.com/p/pnsku/N53432547A/45/_/1694762192/fd45d583-8af9-4ff3-8032-af4a5a3c553c.jpg?format=avif&wproductIdth=240',
-        productQuantity: 20,
+        productQuantity:1,
         productPrice: 200,
         categoryproductId: 1,
         productDetails:
@@ -243,22 +245,27 @@ export class ProductsComponent implements OnInit {
 
 //day3  filter
 
-  productListAfterFilter:Store[]=[] //
 
-  //2
-set doSearch(value:string){
-  // console.log(value);
-// console.log(this.performFilter(value));
-this.productListAfterFilter=this.performFilter(value)
+  //2  as func
 
-}
+productListAfterFilter:Store[]=[]
+//property decorator
+ @Input() set doSearchfromChild(val:string){
+// console.log(val);
+// console.log(this.perfromfilter(val));
+this.productListAfterFilter=this.perfromfilter(val)
+
+
+  }
 
 
   //1
-  performFilter(Prdfilter:string):Store[]{
-    Prdfilter=Prdfilter.toLowerCase()
-    return  this.productProp.filter((prd:Store)=>
-    prd.productName.toLowerCase().includes(Prdfilter)
-    )
+
+  perfromfilter(filterValue:string):Store[]{    
+    filterValue=filterValue.toLowerCase()
+    return this.productProp.filter((prd:Store)=>
+      prd.productName.toLowerCase().includes(filterValue)
+  )
   }
+
 }

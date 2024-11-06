@@ -2,3 +2,8 @@
     background-color: red;
     color: aqua;
 }
+.price{
+    color: gray;
+    text-decoration: line-through;
+    
+}

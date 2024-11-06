@@ -1,0 +1,22 @@
+
+<!-- //parent -->
+
+<div class="container">
+    <h1>
+        {{date | date : 'fullTime' }}
+    </h1>
+    <div class="row">
+        <label >Search By Name:</label>
+      <input
+      type="text"
+      name="name"
+      class="form-control mt-5"
+      [(ngModel)]="doSearchParent"
+    />      
+    </div>
+
+</div>
+
+
+
+<app-products [doSearchfromChild]="doSearchParent" ></app-products>

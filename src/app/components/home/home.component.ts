@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { Iti } from '../../models/iti';
 import { log } from 'console';
 import { CommonModule, NgFor } from '@angular/common';
+import { ProductsComponent } from '../products/products.component';
 // import { Iti } from '../../models/iti';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule ,ProductsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

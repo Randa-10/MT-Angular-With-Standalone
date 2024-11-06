@@ -9,3 +9,8 @@
     border-radius: 20px;
 
 }
+
+.active{
+    color: teal !important;
+    font-size: 20px;
+}

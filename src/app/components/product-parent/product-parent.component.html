@@ -1,22 +1,44 @@
-
 <!-- //parent -->
 
 <div class="container">
-    <h1>
-        {{date | date : 'fullTime' }}
-    </h1>
-    <div class="row">
-        <label >Search By Name:</label>
-      <input
+  <h1>
+    {{ date | date : "fullTime" }}
+  </h1>
+  <div class="row">
+    <label>Search By Name:</label>
+    <input
       type="text"
       name="name"
       class="form-control mt-5"
       [(ngModel)]="doSearchParent"
-    />      
-    </div>
+    />
+  </div>
 
+  <!-- {}// fire for emit -->
+  <app-products
+    [doSearchfromChild]="doSearchParent"
+    (productInCart)="addToCartInParent($event)"
+  ></app-products>
+
+  <h1>Products In Cart</h1>
+
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>price</th>
+        <th>q</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(items of productListInCart; track items.productId){
+      <tr>
+        <td>{{ items.productName }}</td>
+        <td>{{ items.productPrice }}</td>
+
+        <td>{{ items.productQuantity }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
 </div>
-
-
-
-<app-products [doSearchfromChild]="doSearchParent" ></app-products>

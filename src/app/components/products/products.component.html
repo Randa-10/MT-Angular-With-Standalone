@@ -39,6 +39,7 @@
     html
 } -->
     <!-- v17....  @for @if @switch -->
+    <!-- i ===> {} -->
     @for(i of productListAfterFilter ; track productProp){
     <div class="col-md-4 mt-2">
       <div class="card" style="width: 18rem">
@@ -101,12 +102,19 @@
 </div>
 </div> -->
 
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <button class="btn btn-primary" [disabled]="i.productQuantity == 0">
+          <button
+            class="btn btn-primary"
+            [disabled]="i.productQuantity == 0"
+            (click)="addToCartFromChild(i)"
+          >
             Add to cart
+          </button>
+          <br />
+          <button
+            class="btn btn-danger mt-2"
+            [routerLink]="['/Product', i.productId]"
+          >
+            Details
           </button>
         </div>
       </div>

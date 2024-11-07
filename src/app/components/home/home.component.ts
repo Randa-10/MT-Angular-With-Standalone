@@ -3,6 +3,7 @@ import { Iti } from '../../models/iti';
 import { log } from 'console';
 import { CommonModule, NgFor } from '@angular/common';
 import { ProductsComponent } from '../products/products.component';
+import { ProductsService } from '../../services/products.service';
 // import { Iti } from '../../models/iti';
 
 @Component({
@@ -19,7 +20,7 @@ export class HomeComponent {
 
 
 
-constructor( ){
+constructor( private prodct:ProductsService ){
 this.propTrack=new Iti("MEARN",["sohag","cairo","item1"],1)   //{}
 this.propTrack2=new Iti(".net",["sohag","cairo","item1"],1)  //{}
 

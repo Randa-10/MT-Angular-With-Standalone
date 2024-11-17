@@ -1,5 +1,5 @@
 export interface Store {
-productId:number
+id:number
 productName:string;
 productImgUrl:string;
 productPrice:number;

@@ -40,7 +40,7 @@
 } -->
     <!-- v17....  @for @if @switch -->
     <!-- i ===> {} -->
-    @for(i of productListAfterFilter ; track productProp){
+    @for(i of productListAfterFilter ; track i.id){
     <div class="col-md-4 mt-2">
       <div class="card" style="width: 18rem">
         <!-- 
@@ -112,7 +112,7 @@
           <br />
           <button
             class="btn btn-danger mt-2"
-            [routerLink]="['/Product', i.productId]"
+            [routerLink]="['/Product', i.id]"
           >
             Details
           </button>

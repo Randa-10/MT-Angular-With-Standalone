@@ -7,6 +7,7 @@ import { DiscountPipe } from '../../pipes/discount.pipe';
 import { CardStyleDirective } from '../../directives/card-style.directive';
 import { ProductsService } from '../../services/products.service';
 import { RouterModule } from '@angular/router';
+
 //class decorator   id
 @Component({
   selector: 'app-products',
@@ -15,7 +16,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit  {
   //
   productProp!: Store[]; //[{},{}]
 
@@ -24,7 +25,7 @@ export class ProductsComponent implements OnInit {
   //1
   //*Day5
   constructor(
-    private productServiceSTatic:ProductsService
+    private productServiceSTatic:ProductsService,
   ) {
     // this.productProp=
     // [
@@ -134,6 +135,7 @@ export class ProductsComponent implements OnInit {
   
   
   }
+
   //2
   ngOnInit(): void {
  
@@ -141,6 +143,8 @@ export class ProductsComponent implements OnInit {
 
  //Day4
  this.productListAfterFilter=this.productServiceSTatic.getAllProduct()
+
+
 
     console.log(this.productProp);
   }
@@ -164,6 +168,8 @@ productListAfterFilter:Store[]=[]
 // this.productListAfterFilter=this.perfromfilter(val)
 //Day5
 this.productListAfterFilter=this.productServiceSTatic.perfromfilter(val) 
+
+
 
 
 

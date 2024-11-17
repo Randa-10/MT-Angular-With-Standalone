@@ -23,7 +23,7 @@ export class ProductParentComponent {
   //  console.log(prdInCart);
    
     let obj = this.productListInCart.find(
-      (i) => i.productId === prdInCart.productId
+      (i) => i.id === prdInCart.id
     ); //{}
 
     if (obj) {

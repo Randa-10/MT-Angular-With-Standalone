@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { Store } from '../../models/store';
 import { Location } from '@angular/common';
+import { ProductsWithApiService } from '../../services/products-with-api.service';
 
 @Component({
   selector: 'app-product-details',
@@ -18,6 +19,7 @@ export class ProductDetailsComponent implements OnInit {
   currentId: number = 0;
   // productService=inject(ProductsService)
   product!: Store | undefined;
+  productsByBrand:Store[]=[]
   //Day6
   allProductIdArray: number[] = [];
   //arr[0]=1
@@ -28,6 +30,7 @@ export class ProductDetailsComponent implements OnInit {
     private productService: ProductsService,
     private router: Router,
     private locat: Location,
+    private productWithApi: ProductsWithApiService
   ) {}
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
@@ -57,16 +60,30 @@ export class ProductDetailsComponent implements OnInit {
     // });
     this.active.paramMap.subscribe((x) => {
       this.currentId = Number(x.get('IdUrl')) || 0;
-      let onProduct = this.productService.getProductById(this.currentId);
-      if (onProduct) {
-        this.product = onProduct;
-      } else {
-        this.router.navigate(['**']);
-      }
-   
+      // let onProduct = this.productService.getProductById(this.currentId);
+      // if (onProduct) {
+      //   this.product = onProduct;
+      // } else {
+      //   this.router.navigate(['**']);
+      // }
+
+      //day7
+      this.productWithApi.getProductById(this.currentId.toString()).subscribe({
+        next: (data) => {
+          // console.log(data);
+          this.product = data;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     });
 
-    this.allProductIdArray = this.productService.getarrayOfIds();
+    // this.allProductIdArray = this.productService.getarrayOfIds();
+
+    this.productWithApi.getAllProducts().subscribe((data) => {
+      this.allProductIdArray = data.map((prd) => Number(prd.id));
+    });
     console.log(this.allProductIdArray);
   }
 
@@ -93,5 +110,14 @@ export class ProductDetailsComponent implements OnInit {
 
   goBack() {
     this.locat.back();
+  }
+
+  //day7
+
+  search(val:string){
+    this.productWithApi.searchBybrand(val).subscribe((data)=>{
+      // console.log(data);
+      this.productsByBrand=data
+    })
   }
 }

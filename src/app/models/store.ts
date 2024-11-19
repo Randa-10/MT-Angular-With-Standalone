@@ -5,7 +5,8 @@ productImgUrl:string;
 productPrice:number;
 productDetails?:string;
 productQuantity:number;
-categoryproductId:number
+categoryproductId:number;
+Brand:string
 
 
 }

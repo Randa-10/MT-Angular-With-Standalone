@@ -7,16 +7,23 @@ import { DiscountPipe } from '../../pipes/discount.pipe';
 import { CardStyleDirective } from '../../directives/card-style.directive';
 import { ProductsService } from '../../services/products.service';
 import { RouterModule } from '@angular/router';
+import { ProductsWithApiService } from '../../services/products-with-api.service';
 
 //class decorator   id
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormsModule,DiscountPipe,CardStyleDirective,RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    DiscountPipe,
+    CardStyleDirective,
+    RouterModule,
+  ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
-export class ProductsComponent implements OnInit  {
+export class ProductsComponent implements OnInit {
   //
   productProp!: Store[]; //[{},{}]
 
@@ -25,7 +32,8 @@ export class ProductsComponent implements OnInit  {
   //1
   //*Day5
   constructor(
-    private productServiceSTatic:ProductsService,
+    private productServiceSTatic: ProductsService,
+    private productWithAPI: ProductsWithApiService
   ) {
     // this.productProp=
     // [
@@ -130,21 +138,26 @@ export class ProductsComponent implements OnInit  {
     //   },
     // ];
     // console.log(this.productProp);
-  
- 
-  
-  
   }
 
   //2
   ngOnInit(): void {
- 
- this.productListAfterFilter=this.productProp
+    this.productListAfterFilter = this.productProp;
 
- //Day4
- this.productListAfterFilter=this.productServiceSTatic.getAllProduct()
+    //Day4
+    //  this.productListAfterFilter=this.productServiceSTatic.getAllProduct()
 
+    //Day7
 
+    this.productWithAPI.getAllProducts().subscribe({
+      next: (data) => {
+        // console.log(data);
+        this.productListAfterFilter = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
 
     console.log(this.productProp);
   }
@@ -154,53 +167,48 @@ export class ProductsComponent implements OnInit  {
     this.showImge = !this.showImge;
   }
 
-
-//day3  filter
-
+  //day3  filter
 
   //2  as func
 
-productListAfterFilter:Store[]=[]
-//property decorator
- @Input() set doSearchfromChild(val:string){
-// console.log(val);
-// console.log(this.perfromfilter(val));
-// this.productListAfterFilter=this.perfromfilter(val)
-//Day5
-this.productListAfterFilter=this.productServiceSTatic.perfromfilter(val) 
+  productListAfterFilter: Store[] = [];
+  //property decorator
+  @Input() set doSearchfromChild(val: string) {
+    // console.log(val);
+    // console.log(this.perfromfilter(val));
+    // this.productListAfterFilter=this.perfromfilter(val)
+    //Day5
+    // this.productListAfterFilter=this.productServiceSTatic.perfromfilter(val)
 
-
-
-
-
+    //day7
+    this.productWithAPI.getAllProducts().subscribe((data) => {
+      this.productListAfterFilter = data.filter((prd: Store) =>
+        prd.productName.toLowerCase().includes(val)
+      );
+    });
   }
-
 
   //1
 
-  // perfromfilter(filterValue:string):Store[]{    
+  // perfromfilter(filterValue:string):Store[]{
   //   filterValue=filterValue.toLowerCase()
   //   return this.productProp.filter((prd:Store)=>
   //     prd.productName.toLowerCase().includes(filterValue)
   // )
   // }
 
-
   //*********************Day5**********************************************************/
 
-//creat event  ==> @outPut
-// from child to parent
+  //creat event  ==> @outPut
+  // from child to parent
 
- @Output() productInCart:EventEmitter<Store>=new EventEmitter<Store>()     //{ prd }
+  @Output() productInCart: EventEmitter<Store> = new EventEmitter<Store>(); //{ prd }
 
-
-  addToCartFromChild(prd:Store){   //{} prd
+  addToCartFromChild(prd: Store) {
+    //{} prd
 
     // console.log(prd);
-    
-   this.productInCart.emit(prd)     //to fire
 
+    this.productInCart.emit(prd); //to fire
   }
-
-
 }

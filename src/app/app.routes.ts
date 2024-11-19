@@ -5,6 +5,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { MainComponent } from './components/main/main.component';
 import { ProductParentComponent } from './components/product-parent/product-parent.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { UserTemplateFormComponent } from './components/user-template-form/user-template-form.component';
 
 export const routes: Routes = [
 
@@ -19,7 +20,9 @@ export const routes: Routes = [
 {path:'',redirectTo:'/home', pathMatch:'full'},
 {path:'home',component:HomeComponent,title:"home page"} ,  //localhost:4200/home
 {path:'Product',component:ProductParentComponent,title:"product page"} ,  //localhost:4200/home
-{path:'Product/:IdUrl' ,component:ProductDetailsComponent, title:"details page"}    //:IdUrl
+{path:'Product/:IdUrl' ,component:ProductDetailsComponent, title:"details page"},    //:IdUrl
+{path:'signup' ,component:UserTemplateFormComponent, title:"details page"}    //:IdUrl
+
 ]},
 
 

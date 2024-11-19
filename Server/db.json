@@ -2,12 +2,13 @@
   "products": [
     {
       "id": "1",
-      "productName": "Apple iPhone 15",
+      "productName": "Apple55 iPhone 15",
       "productImgUrl": "https://f.nooncdn.com/p/pnsku/N53432547A/45/_/1694762192/fd45d583-8af9-4ff3-8032-af4a5a3c553c.jpg?format=avif&wproductIdth=240",
       "productQuantity": 1,
       "productPrice": 200,
       "categoryproductId": 1,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "hp"
     },
     {
       "id": "2",
@@ -16,7 +17,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryproductId": 2,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "hp"
     },
     {
       "id": "3",
@@ -25,16 +27,18 @@
       "productQuantity": 0,
       "productPrice": 200,
       "categoryproductId": 1,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "dell"
     },
     {
-      "id":"4",
+      "id": "4",
       "productName": "Samsung Galaxy ",
       "productImgUrl": "https://f.nooncdn.com/p/pnsku/N70035206V/45/_/1712239207/3e7c97e2-cf7d-48ee-b324-a5d4aa30efe8.jpg?format=avif&wproductIdth=240",
       "productQuantity": 1,
       "productPrice": 200,
       "categoryproductId": 2,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "dell"
     },
     {
       "id": "5",
@@ -43,7 +47,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryproductId": 2,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "dell"
     },
     {
       "id": "6",
@@ -52,7 +57,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryproductId": 2,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "dell"
     },
     {
       "id": "7",
@@ -61,7 +67,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryproductId": 3,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "dell"
     },
     {
       "id": "8",
@@ -70,7 +77,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryproductId": 1,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "dell"
     },
     {
       "id": "9",
@@ -79,7 +87,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryproductId": 1,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "dell"
     },
     {
       "id": "7330",
@@ -89,8 +98,43 @@
       "productQuantity": 1,
       "productPrice": 200,
       "categoryproductId": 1,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  "
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ",
+      "Brand": "dell"
     }
   ],
-  "categories": []
+  "categories": [],
+  "users": [
+    {
+      "id": "40d6",
+      "firstName": "ali",
+      "lastName": "ahmed",
+      "password": "123",
+      "address": "sohag",
+      "email": "string@gmail.com"
+    },
+    {
+      "id": "20c5",
+      "firstName": "ali",
+      "lastName": "ahmed",
+      "password": "123",
+      "address": "sohag",
+      "email": "string@gmail.com"
+    },
+    {
+      "id": "0dc9",
+      "firstName": "ali",
+      "lastName": "ahmed",
+      "password": "123",
+      "address": "sohag",
+      "email": "string@gmail.com"
+    },
+    {
+      "id": "8c6d",
+      "firstName": "ali",
+      "lastName": "ahmed",
+      "password": "123",
+      "address": "sohag",
+      "email": "string@gmail.com"
+    }
+  ]
 }

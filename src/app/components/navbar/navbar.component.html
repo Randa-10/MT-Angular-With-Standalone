@@ -25,11 +25,11 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" routerLink="/signup" >login </a>
+            <a class="nav-link" routerLink="/signup" [hidden]="isUserLoggedNave" >login </a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link"  >logout </a>
+            <a class="nav-link" [hidden]="!isUserLoggedNave" >logout </a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" ><i class="fa-solid fa-user"></i></a>
